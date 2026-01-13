@@ -7,5 +7,5 @@ dependencies = [
     "pixel-font-builder==0.0.47",
     "fonttools[woff]==4.61.1",
     "loguru==0.7.3",
-    "cyclopts==4.4.4",
+    "cyclopts==4.8.0",
 ]
