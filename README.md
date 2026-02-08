@@ -9,7 +9,7 @@
 
 # Zfull 像素字体
 
-[![Releases](https://img.shields.io/github/v/release/TakWolf/zfull-pixel-font)](https://github.com/TakWolf/zfull-pixel-font/releases)
+[![Releases](https://img.shields.io/github/v/release/pixel-font-legacy/zfull-pixel-font?style=flat-square)](https://github.com/pixel-font-legacy/zfull-pixel-font/releases)
 
 过去曾在网络流行的点阵字体。
 
