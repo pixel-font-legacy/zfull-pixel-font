@@ -1,6 +1,6 @@
 import json
 import shutil
-import zipfile
+from zipfile import ZipFile
 
 from loguru import logger
 
@@ -15,7 +15,7 @@ def make_release_zips(dump_logs: dict[LanguageFlavor, list[int]], font_formats: 
     for language_flavor in options.language_flavors:
         for font_format in font_formats:
             file_path = path_define.releases_dir.joinpath(f'zfull-pixel-font-{language_flavor}-{font_format}-v{configs.version}.zip')
-            with zipfile.ZipFile(file_path, 'w') as file:
+            with ZipFile(file_path, 'w') as file:
                 file.write(path_define.project_root_dir.joinpath('LICENSE-FONT.md'), 'README.md')
                 for font_size in dump_logs[language_flavor]:
                     file_path = path_define.outputs_dir.joinpath(f'Zfull-{language_flavor.upper()}-{font_size}px.{font_format}')
