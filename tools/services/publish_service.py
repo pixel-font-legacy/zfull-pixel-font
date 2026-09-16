@@ -1,5 +1,6 @@
 import json
 import shutil
+from collections.abc import Mapping, Sequence
 from zipfile import ZipFile
 
 from loguru import logger
@@ -9,7 +10,7 @@ from tools.configs import path_define, options
 from tools.configs.options import LanguageFlavor, FontFormat
 
 
-def make_release_zips(dump_logs: dict[LanguageFlavor, list[int]], font_formats: list[FontFormat]) -> None:
+def make_release_zips(dump_logs: Mapping[LanguageFlavor, list[int]], font_formats: Sequence[FontFormat]) -> None:
     path_define.RELEASES_DIR.mkdir(parents=True, exist_ok=True)
 
     for language_flavor in options.LANGUAGE_FLAVORS:
@@ -23,7 +24,7 @@ def make_release_zips(dump_logs: dict[LanguageFlavor, list[int]], font_formats: 
             logger.info("Make release zip: '{}'", file_path)
 
 
-def update_www(dump_logs: dict[LanguageFlavor, list[int]]) -> None:
+def update_www(dump_logs: Mapping[LanguageFlavor, list[int]]) -> None:
     if path_define.WWW_FONTS_DIR.exists():
         shutil.rmtree(path_define.WWW_FONTS_DIR)
     path_define.WWW_FONTS_DIR.mkdir(parents=True)

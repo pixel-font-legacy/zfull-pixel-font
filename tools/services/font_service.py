@@ -1,4 +1,5 @@
 import itertools
+from collections.abc import Sequence
 from datetime import datetime
 
 from fontTools.ttLib import TTFont
@@ -14,7 +15,7 @@ from tools.configs import path_define, options
 from tools.configs.options import LanguageFlavor, FontFormat
 
 
-def dump_fonts(font_formats: list[FontFormat]) -> dict[LanguageFlavor, list[int]]:
+def dump_fonts(font_formats: Sequence[FontFormat]) -> dict[LanguageFlavor, list[int]]:
     path_define.OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
 
     dump_logs = {}
