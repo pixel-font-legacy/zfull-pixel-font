@@ -18,6 +18,7 @@ def make_release_zips(dump_logs: Mapping[LanguageFlavor, list[int]], font_format
             file_path = path_define.RELEASES_DIR.joinpath(f'zfull-pixel-font-{language_flavor}-{font_format}-v{configs.VERSION}.zip')
             with ZipFile(file_path, 'w') as file:
                 file.write(path_define.PROJECT_ROOT_DIR.joinpath('LICENSE-FONT.md'), 'README.md')
+
                 for font_size in dump_logs[language_flavor]:
                     file_path = path_define.OUTPUTS_DIR.joinpath(f'Zfull-{language_flavor.upper()}-{font_size}px.{font_format}')
                     file.write(file_path, file_path.name)
@@ -32,6 +33,7 @@ def update_www(dump_logs: Mapping[LanguageFlavor, list[int]]) -> None:
     for path_from in path_define.OUTPUTS_DIR.iterdir():
         if not path_from.name.endswith('.otf.woff2'):
             continue
+
         path_to = path_from.copy_into(path_define.WWW_FONTS_DIR)
         logger.info("Copy file: '{}' -> '{}'", path_from, path_to)
 
